@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #101d3c;
+  --muted: #5f6678;
+  --paper: #fbfaf7;
+  --surface: #ffffff;
+  --line: #e6e4df;
+  --blue: #4c68d7;
+  --purple: #7655cf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist), Arial, sans-serif;
+}
+
+::selection {
+  background: #d9defb;
+  color: var(--ink);
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+:focus-visible {
+  outline: 3px solid #6f65dc;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 100;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 12% 15%, rgba(92, 118, 225, 0.14), transparent 32%),
+    radial-gradient(circle at 88% 26%, rgba(126, 84, 202, 0.13), transparent 34%),
+    linear-gradient(180deg, #fbfaf7 0%, #f8f7fb 100%);
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(rgba(16, 29, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 29, 60, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, #304dab 5%, #7254ca 65%, #a455a7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.product-orbit {
+  animation: float 7s ease-in-out infinite;
+}
+
+.photo-card {
+  box-shadow: 0 26px 60px rgba(22, 31, 64, 0.16);
+}
+
+.legal-copy h2 {
+  margin-top: 2.5rem;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.legal-copy p,
+.legal-copy li {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.legal-copy p {
+  margin-top: 0.8rem;
+}
+
+.legal-copy ul {
+  margin-top: 0.8rem;
+  list-style: disc;
+  padding-left: 1.35rem;
+}
+
+.legal-copy a {
+  color: #3f56b6;
+  font-weight: 650;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .product-orbit {
+    animation: none;
+  }
+}
