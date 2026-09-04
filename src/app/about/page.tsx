@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ContactBand, PageHero } from "@/components/ui";
+import Link from "next/link";
+import { Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,42 +19,68 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About Vaden Consultancy" title="Thoughtful software, built with purpose.">
-        <p>
-          We focus on clear experiences, reliable foundations, and technology that earns its place in people’s lives.
-        </p>
-      </PageHero>
-
-      <section className="px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[.7fr_1.3fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-[#586ccc]">Who we are</p>
-            <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-[#101d3c]/10 bg-white p-4 shadow-sm">
-              <span className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-[#4968d2] to-[#7e56c9] font-black text-white">V</span>
-              <span className="font-semibold">Texas, United States</span>
-            </div>
+      <section className="about-hero relative overflow-hidden text-white">
+        <div className="site-container about-hero-grid">
+          <div className="about-hero-mark" aria-hidden="true">
+            <span>V</span>
+            <small>Independent studio</small>
           </div>
           <div>
-            <p className="text-2xl font-medium leading-[1.55] tracking-[-.025em] text-[#253252] sm:text-3xl sm:leading-[1.5]">
-              Vaden Consultancy is an assumed name of Ecleva LLC, a Texas limited liability company. We build and develop software products with a focus on simple user experiences, dependable technology, and products people enjoy using.
+            <Eyebrow inverse>About Vaden</Eyebrow>
+            <h1>Vaden builds focused software products.</h1>
+            <p>
+              From playful consumer experiences to useful software tools—clear ideas, carefully made.
             </p>
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
-              <article className="rounded-3xl border border-[#101d3c]/10 bg-white p-7">
-                <p className="text-xs font-bold uppercase tracking-[.16em] text-[#6676c9]">Our focus</p>
-                <h2 className="mt-4 text-xl font-semibold tracking-[-.03em]">Products with practical value</h2>
-                <p className="mt-3 leading-7 text-[#687083]">Software shaped around a clear purpose, useful details, and an experience that respects the user.</p>
-              </article>
-              <article className="rounded-3xl border border-[#101d3c]/10 bg-[#f1f0f7] p-7">
-                <p className="text-xs font-bold uppercase tracking-[.16em] text-[#6676c9]">Our approach</p>
-                <h2 className="mt-4 text-xl font-semibold tracking-[-.03em]">Clarity over complexity</h2>
-                <p className="mt-3 leading-7 text-[#687083]">Careful design and dependable engineering, without features or friction that do not serve the product.</p>
-              </article>
-            </div>
           </div>
         </div>
       </section>
 
-      <ContactBand title="Questions about our work?" copy="Reach Vaden Consultancy directly by email. We’ll keep the conversation clear and straightforward." />
+      <section className="about-editorial">
+        <div className="site-container">
+          <p className="about-editorial-kicker">Our point of view</p>
+          <p className="about-editorial-statement">
+            Start with what the product is for. Make every interaction support it. Build the foundation to last.
+          </p>
+
+          <div className="about-build-pair">
+            <article>
+              <span>What we build / 01</span>
+              <h2>Playful consumer experiences.</h2>
+            </article>
+            <article>
+              <span>What we build / 02</span>
+              <h2>Useful software tools.</h2>
+            </article>
+          </div>
+
+          <div className="about-principles-line" aria-label="Vaden product principles">
+            <p><span>Purpose</span> Clear reason to exist</p>
+            <p><span>Experience</span> Simple and considered</p>
+            <p><span>Foundation</span> Dependable technology</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-company">
+        <div className="site-container about-company-grid">
+          <div>
+            <p className="about-company-label">Company details</p>
+            <h2>Vaden Consultancy</h2>
+          </div>
+          <p className="about-company-legal">
+            Vaden Consultancy is an assumed name of Ecleva LLC, a Texas limited liability company.
+          </p>
+          <p className="about-company-location">Texas, United States</p>
+        </div>
+      </section>
+
+      <section className="about-contact">
+        <div className="site-container about-contact-inner">
+          <p>Questions about our work?</p>
+          <a href="mailto:support@vadensoftware.com">Email Vaden <span aria-hidden="true">↗</span></a>
+          <Link href="/products">Explore products <span aria-hidden="true">↗</span></Link>
+        </div>
+      </section>
     </>
   );
 }

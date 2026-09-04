@@ -42,30 +42,25 @@ export default function SupportPage() {
   return (
     <>
       <PageHero eyebrow="Product support" title="RETAKE Party Support">
-        <p>
-          Need help? Review the common topics below or email us directly. We’ll do our best to provide a clear, useful response.
-        </p>
-        <div className="mt-8">
+        <p>Find a common answer below or email Vaden directly.</p>
+        <div className="mt-7">
           <ButtonLink href="mailto:support@vadensoftware.com">Email support</ButtonLink>
         </div>
       </PageHero>
 
-      <section className="px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col gap-4 border-b border-[#101d3c]/10 pb-9 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-[#586ccc]">Help center</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-.045em] sm:text-4xl">Common topics</h2>
-            </div>
-            <p className="max-w-sm text-sm leading-6 text-[#687083]">Short answers for the things players are most likely to need.</p>
+      <section className="support-topics-section">
+        <div className="site-container">
+          <div className="support-topics-heading">
+            <p>Common answers</p>
+            <h2>Start here.</h2>
           </div>
-          <div className="mt-5 divide-y divide-[#101d3c]/10">
+          <div className="support-topics-grid">
             {topics.map((topic) => (
-              <article key={topic.number} className="grid gap-4 py-8 sm:grid-cols-[4rem_1fr] sm:gap-6">
-                <span className="text-xs font-bold tracking-[.16em] text-[#6678cd]">{topic.number}</span>
+              <article key={topic.number}>
+                <span>{topic.number}</span>
                 <div>
-                  <h3 className="text-xl font-semibold tracking-[-.03em]">{topic.title}</h3>
-                  <p className="mt-3 max-w-2xl leading-7 text-[#687083]">{topic.text}</p>
+                  <h3>{topic.title}</h3>
+                  <p>{topic.text}</p>
                 </div>
               </article>
             ))}
@@ -73,13 +68,13 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#101d3c]/9 bg-[#f1f0f7] px-5 py-16 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-5xl flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
+      <section className="support-privacy-strip">
+        <div className="site-container support-privacy-strip-inner">
           <div>
             <h2 className="text-2xl font-semibold tracking-[-.035em]">Privacy matters during play.</h2>
-            <p className="mt-3 max-w-2xl leading-7 text-[#687083]">Learn how RETAKE Party handles camera access, game photos, saving, and sharing.</p>
+            <p>How camera access, game photos, saving, and sharing work.</p>
           </div>
-          <Link href="/privacy" className="shrink-0 font-bold text-[#4459b5] hover:underline">Read Privacy Policy →</Link>
+          <Link href="/privacy">Read Privacy Policy <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
     </>

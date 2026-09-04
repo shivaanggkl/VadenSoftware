@@ -15,11 +15,11 @@ const siteUrl = "https://vadensoftware.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Vaden Consultancy | Software Products & Technology Solutions",
+    default: "Vaden Consultancy | Independent Software Studio",
     template: "%s | Vaden Consultancy",
   },
   description:
-    "Vaden Consultancy, operated by Ecleva LLC, builds thoughtful software products and technology solutions.",
+    "Vaden is an independent software studio creating focused digital products—from playful consumer experiences to useful software tools.",
   applicationName: "Vaden Consultancy",
   alternates: { canonical: "/" },
   openGraph: {
@@ -27,23 +27,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Vaden Consultancy",
-    title: "Vaden Consultancy | Software Products & Technology Solutions",
+    title: "Vaden Consultancy | Independent Software Studio",
     description:
-      "Thoughtful software products and technology solutions built by Vaden Consultancy, an assumed name of Ecleva LLC.",
+      "We build software people want to use. Explore focused digital products from Vaden.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Vaden Consultancy — Software products built to be simple, useful, and enjoyable.",
+        alt: "Vaden Consultancy — We build software people want to use.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vaden Consultancy | Software Products & Technology Solutions",
+    title: "Vaden Consultancy | Independent Software Studio",
     description:
-      "Thoughtful software products and technology solutions built by Vaden Consultancy.",
+      "We build software people want to use. Explore focused digital products from Vaden.",
     images: ["/og.png"],
   },
 };
