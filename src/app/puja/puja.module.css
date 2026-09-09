@@ -1,0 +1,1069 @@
+.page {
+  --puja-cream: #fbf5e9;
+  --puja-paper: #fffaf0;
+  --puja-maroon: #711f2d;
+  --puja-maroon-deep: #4e1520;
+  --puja-gold: #b88a39;
+  --puja-gold-soft: #d9bd7b;
+  --puja-ink: #412d2b;
+  --puja-muted: #806d67;
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(184, 138, 57, 0.09), transparent 24rem),
+    radial-gradient(circle at 96% 42%, rgba(113, 31, 45, 0.055), transparent 26rem),
+    var(--puja-cream);
+  color: var(--puja-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ambientTop {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 30rem;
+  opacity: 0.38;
+  background-image:
+    radial-gradient(circle, rgba(184, 138, 57, 0.35) 1px, transparent 1px),
+    linear-gradient(110deg, transparent 47%, rgba(184, 138, 57, 0.07) 48%, transparent 49%);
+  background-size: 24px 24px, 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.invitationShell {
+  width: min(calc(100% - 2rem), 48rem);
+  margin-inline: auto;
+  margin-block: clamp(0.75rem, 2.5vw, 2rem);
+  overflow: hidden;
+  border: 1px solid rgba(184, 138, 57, 0.58);
+  border-radius: 0.625rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.98), rgba(255, 248, 234, 0.96)),
+    var(--puja-paper);
+  box-shadow: 0 26px 80px rgba(75, 40, 25, 0.08);
+}
+
+.invitation {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 7vw, 4.25rem) clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.devotionalImage {
+  position: relative;
+  width: clamp(10rem, 16vw, 12.5rem);
+  aspect-ratio: 22 / 25;
+  overflow: hidden;
+  margin-inline: auto;
+  border: 1px solid rgba(184, 138, 57, 0.42);
+  border-radius: 0.5rem;
+  background: #f8eedb;
+}
+
+.devotionalPhoto,
+.devotionalPhotoVisible {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.devotionalPhoto {
+  opacity: 0;
+}
+
+.devotionalPhotoVisible {
+  opacity: 1;
+}
+
+.devotionalPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.6rem;
+  background:
+    radial-gradient(circle at center, rgba(184, 138, 57, 0.12), transparent 58%),
+    var(--puja-paper);
+  color: var(--puja-gold);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.devotionalPlaceholder span {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.devotionalPlaceholder small {
+  max-width: 8rem;
+  color: var(--puja-muted);
+  font-size: 0.72rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.blessing {
+  margin: 1.1rem auto 0;
+  color: var(--puja-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.78rem, 2.2vw, 0.92rem);
+  font-style: italic;
+}
+
+.invitationText {
+  max-width: 27rem;
+  margin: clamp(1rem, 2.5vw, 1.5rem) auto 0;
+  color: #725b54;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 3vw, 1.22rem);
+  line-height: 1.7;
+}
+
+.invitation h1 {
+  display: grid;
+  margin-top: 1rem;
+  color: var(--puja-maroon);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.25rem, 10vw, 6.2rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+}
+
+.invitation h1 span {
+  font-size: 0.48em;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.invitation h1 span:last-child {
+  margin-top: 0.12em;
+  font-size: 0.62em;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ornamentalDivider {
+  display: grid;
+  width: min(100%, 15rem);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  margin: clamp(1.25rem, 3.5vw, 2rem) auto;
+  color: var(--puja-gold);
+}
+
+.ornamentalDivider i {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--puja-gold-soft));
+}
+
+.ornamentalDivider i:last-child {
+  background: linear-gradient(90deg, var(--puja-gold-soft), transparent);
+}
+
+.ornamentalDivider span {
+  font-size: 0.72rem;
+}
+
+.eventDate {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.eventDate span,
+.detailLabel {
+  color: var(--puja-gold);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.eventDate strong {
+  color: var(--puja-maroon-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  font-weight: 400;
+}
+
+.eventDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: clamp(1.15rem, 3vw, 1.75rem);
+  border-block: 1px solid rgba(184, 138, 57, 0.28);
+}
+
+.eventDetails > div {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  min-height: 9.5rem;
+  padding: 1.35rem 1rem;
+}
+
+.eventDetails > div + div {
+  border-left: 1px solid rgba(184, 138, 57, 0.28);
+}
+
+.eventDetails strong,
+.eventDetails address {
+  margin-top: 0.75rem;
+  color: var(--puja-maroon-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.eventDetails small {
+  margin-top: 0.45rem;
+  color: var(--puja-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.eventDetails a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  color: var(--puja-maroon);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(113, 31, 45, 0.3);
+}
+
+.hostsSection {
+  border-top: 1px solid rgba(184, 138, 57, 0.2);
+  padding: clamp(1.5rem, 4vw, 2.25rem) 1.25rem;
+  text-align: center;
+}
+
+.hostsSection > p {
+  color: var(--puja-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.hostNames {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 2rem;
+  max-width: 34rem;
+  margin: 0.85rem auto 0;
+  color: var(--puja-maroon-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+}
+
+.rsvpSection {
+  border-top: 1px solid rgba(184, 138, 57, 0.32);
+  background: rgba(184, 138, 57, 0.035);
+  padding: clamp(1.5rem, 5vw, 2.75rem) clamp(1.25rem, 7vw, 4rem);
+}
+
+.rsvpHeading {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.rsvpHeading > span {
+  color: rgba(184, 138, 57, 0.55);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+}
+
+.rsvpHeading > span:last-child {
+  rotate: 180deg;
+}
+
+.rsvpHeading > div > p:first-child {
+  color: var(--puja-gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rsvpHeading h2 {
+  margin-top: 0.2rem;
+  color: var(--puja-maroon);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 7vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.rsvpHeading > div > p:last-child {
+  margin-top: 0.25rem;
+  color: var(--puja-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.92rem;
+}
+
+.rsvpForm {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 35rem;
+  margin: 1.5rem auto 0;
+}
+
+.loadingNote,
+.savedNote {
+  border-left: 2px solid var(--puja-gold);
+  background: rgba(184, 138, 57, 0.08);
+  padding: 0.75rem 0.9rem;
+  color: #69534e;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.field {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.field label,
+.attendanceField legend,
+.adminLoginCard label {
+  color: var(--puja-maroon-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+}
+
+.field label span {
+  margin-left: 0.3rem;
+  color: var(--puja-muted);
+  font-size: 0.67rem;
+  font-weight: 400;
+}
+
+.field input,
+.field textarea,
+.adminLoginCard input {
+  width: 100%;
+  border: 1px solid rgba(103, 68, 54, 0.24);
+  border-radius: 0.65rem;
+  background: rgba(255, 253, 248, 0.92);
+  padding: 0.82rem 0.9rem;
+  color: var(--puja-ink);
+  font: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input:focus,
+.field textarea:focus,
+.adminLoginCard input:focus,
+.adminActions input:focus {
+  border-color: var(--puja-gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 138, 57, 0.14);
+}
+
+.field input:disabled,
+.field textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.field small {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #9a8983;
+  font-size: 0.65rem;
+}
+
+.attendanceField {
+  min-width: 0;
+}
+
+.attendanceChoices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+.attendanceChoices label {
+  position: relative;
+  display: flex;
+  min-height: 3.25rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(103, 68, 54, 0.24);
+  border-radius: 0.65rem;
+  background: rgba(255, 253, 248, 0.9);
+  color: #6c5750;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.attendanceChoices input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.attendanceChoices label:has(input:focus-visible) {
+  outline: 3px solid rgba(184, 138, 57, 0.45);
+  outline-offset: 2px;
+}
+
+.attendanceChoices .choiceSelected {
+  border-color: var(--puja-maroon);
+  background: var(--puja-maroon);
+  color: white;
+}
+
+.countGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.successMessage,
+.errorMessage {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.65rem;
+  padding: 0.9rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.successMessage {
+  border: 1px solid rgba(62, 116, 74, 0.24);
+  background: #f1f8ed;
+  color: #315f3a;
+}
+
+.errorMessage {
+  border: 1px solid rgba(148, 42, 48, 0.2);
+  background: #fff0ee;
+  color: #822a31;
+}
+
+.successMessage span,
+.errorMessage span {
+  display: grid;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: currentColor;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.submitButton,
+.adminLoginCard button {
+  min-height: 3.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--puja-maroon);
+  padding: 0.85rem 1.5rem;
+  color: white;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 30px rgba(113, 31, 45, 0.16);
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.submitButton:hover,
+.adminLoginCard button:hover {
+  background: var(--puja-maroon-deep);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled,
+.adminLoginCard button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+  transform: none;
+}
+
+.formPrivacy {
+  color: #98867f;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.invitationFooter {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 1.4rem 1rem 1.25rem;
+  border-top: 1px solid rgba(184, 138, 57, 0.18);
+  color: var(--puja-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.94rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.invitationFooter span {
+  color: var(--puja-gold);
+  font-size: 0.65rem;
+}
+
+.page :focus-visible,
+.adminPage :focus-visible,
+.adminLoginPage :focus-visible {
+  outline-color: var(--puja-gold);
+}
+
+.adminLoginPage,
+.adminPage {
+  --puja-cream: #fbf5e9;
+  --puja-paper: #fffaf0;
+  --puja-maroon: #711f2d;
+  --puja-maroon-deep: #4e1520;
+  --puja-gold: #b88a39;
+  --puja-ink: #412d2b;
+  --puja-muted: #806d67;
+  min-height: 100svh;
+  background: var(--puja-cream);
+  color: var(--puja-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.adminLoginPage {
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.adminLoginCard {
+  width: min(100%, 28rem);
+  border: 1px solid rgba(184, 138, 57, 0.45);
+  border-radius: 1rem;
+  background: var(--puja-paper);
+  padding: clamp(1.6rem, 7vw, 3rem);
+  box-shadow: 0 24px 70px rgba(75, 40, 25, 0.09);
+}
+
+.adminLoginCard .adminKicker {
+  margin-top: 1.4rem;
+  color: var(--puja-gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.adminLoginCard h1 {
+  margin-top: 0.5rem;
+  color: var(--puja-maroon);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
+  font-weight: 400;
+}
+
+.adminLoginCard > p:not(.adminKicker) {
+  margin-top: 0.75rem;
+  color: var(--puja-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.adminLoginCard form {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+.adminLoginCard button {
+  margin-top: 0.5rem;
+}
+
+.adminError,
+.adminDataError {
+  color: #8a2932;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.adminHeader {
+  display: flex;
+  min-height: 8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(184, 138, 57, 0.3);
+  background: var(--puja-paper);
+  padding: 1.5rem max(1.25rem, calc((100vw - 88rem) / 2));
+}
+
+.adminHeader p {
+  color: var(--puja-gold);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.adminHeader h1 {
+  margin-top: 0.4rem;
+  color: var(--puja-maroon);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 4vw, 2.7rem);
+  font-weight: 400;
+}
+
+.adminHeader button,
+.adminActions button,
+.adminActions a {
+  display: inline-flex;
+  min-height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(113, 31, 45, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.65rem 1rem;
+  color: var(--puja-maroon);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.adminHeader button:hover,
+.adminActions button:hover,
+.adminActions a:hover {
+  background: rgba(113, 31, 45, 0.06);
+}
+
+.adminContent {
+  width: min(100%, 88rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.adminMetrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.adminMetrics article {
+  display: grid;
+  min-height: 8.5rem;
+  align-content: space-between;
+  border: 1px solid rgba(184, 138, 57, 0.28);
+  border-radius: 0.75rem;
+  background: rgba(255, 250, 240, 0.82);
+  padding: 1.1rem;
+}
+
+.adminMetrics span {
+  color: var(--puja-muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.adminMetrics strong {
+  color: var(--puja-maroon);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.adminResponses {
+  margin-top: 1.25rem;
+  border: 1px solid rgba(184, 138, 57, 0.28);
+  border-radius: 0.85rem;
+  background: var(--puja-paper);
+}
+
+.adminToolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(184, 138, 57, 0.24);
+}
+
+.adminToolbar h2 {
+  color: var(--puja-maroon-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.adminToolbar > div:first-child p {
+  margin-top: 0.25rem;
+  color: var(--puja-muted);
+  font-size: 0.72rem;
+}
+
+.adminActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.adminActions input {
+  min-height: 2.7rem;
+  width: min(16rem, 45vw);
+  border: 1px solid rgba(103, 68, 54, 0.24);
+  border-radius: 999px;
+  background: white;
+  padding: 0.65rem 1rem;
+  color: var(--puja-ink);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.adminActions a {
+  border-color: var(--puja-maroon);
+  background: var(--puja-maroon);
+  color: white;
+}
+
+.adminActions a:hover {
+  background: var(--puja-maroon-deep);
+}
+
+.adminDataError {
+  margin: 1rem 1.25rem 0;
+  border: 1px solid rgba(138, 41, 50, 0.2);
+  border-radius: 0.5rem;
+  background: #fff0ee;
+  padding: 0.85rem;
+}
+
+.adminTableWrap {
+  overflow-x: auto;
+}
+
+.adminTableWrap table {
+  width: 100%;
+  min-width: 62rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.adminTableWrap th {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(184, 138, 57, 0.2);
+  color: var(--puja-muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.adminTableWrap td {
+  max-width: 21rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(184, 138, 57, 0.15);
+  color: #65524d;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  vertical-align: top;
+}
+
+.adminTableWrap tr:last-child td {
+  border-bottom: 0;
+}
+
+.adminTableWrap td strong {
+  color: var(--puja-maroon-deep);
+}
+
+.attendingYes,
+.attendingNo {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.attendingYes {
+  background: #eef6e9;
+  color: #39633d;
+}
+
+.attendingNo {
+  background: #f3ece9;
+  color: #745b53;
+}
+
+.messageCell {
+  white-space: pre-wrap;
+}
+
+.dateCell span,
+.dateCell small {
+  display: block;
+  white-space: nowrap;
+}
+
+.dateCell small {
+  margin-top: 0.3rem;
+  color: #9b8780;
+}
+
+.emptyTable {
+  padding-block: 3.5rem !important;
+  text-align: center;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 47.999rem) {
+  .invitationShell {
+    width: min(calc(100% - 0.75rem), 48rem);
+    margin-block: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  .invitation {
+    padding: 1.25rem 1rem 1.1rem;
+  }
+
+  .devotionalImage {
+    width: clamp(8.75rem, 42vw, 10rem);
+  }
+
+  .invitationText {
+    max-width: 18rem;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .invitation h1 {
+    margin-top: 0.65rem;
+    font-size: clamp(2.8rem, 13.5vw, 3.7rem);
+  }
+
+  .ornamentalDivider {
+    margin-block: 1rem;
+  }
+
+  .eventDetails > div {
+    min-height: auto;
+    padding: 1rem 0.4rem;
+  }
+
+  .eventDetails > div + div {
+    border-left: 0;
+    border-top: 1px solid rgba(184, 138, 57, 0.28);
+  }
+
+  .eventDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .hostsSection {
+    padding-block: 1.35rem;
+  }
+
+  .hostNames {
+    gap: 0.45rem 0.6rem;
+    margin-top: 0.7rem;
+    font-size: 0.94rem;
+  }
+
+  .rsvpSection {
+    padding: 1.35rem 1rem 1.5rem;
+  }
+
+  .rsvpHeading {
+    grid-template-columns: 2rem 1fr 2rem;
+    gap: 0.25rem;
+  }
+
+  .rsvpForm {
+    gap: 0.9rem;
+    margin-top: 1.2rem;
+  }
+
+  .attendanceChoices label {
+    min-height: 2.9rem;
+    padding-inline: 0.35rem;
+    font-size: 0.76rem;
+  }
+
+  .countGrid {
+    gap: 0.55rem;
+  }
+
+  .field input,
+  .field textarea {
+    font-size: 1rem;
+  }
+
+  .invitationFooter {
+    padding-block: 1rem;
+  }
+
+  .adminHeader {
+    min-height: auto;
+    align-items: flex-start;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .adminHeader button {
+    min-height: 2.5rem;
+    flex: none;
+  }
+
+  .adminContent {
+    padding: 1rem;
+  }
+
+  .adminMetrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .adminMetrics article {
+    min-height: 6.7rem;
+  }
+
+  .adminMetrics article:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .adminMetrics strong {
+    font-size: 2rem;
+  }
+
+  .adminToolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .adminActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .adminActions label {
+    grid-column: 1 / -1;
+  }
+
+  .adminActions input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .adminTableWrap {
+    overflow: visible;
+    padding: 0 1rem 1rem;
+  }
+
+  .adminTableWrap table,
+  .adminTableWrap tbody,
+  .adminTableWrap tr,
+  .adminTableWrap td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .adminTableWrap thead {
+    display: none;
+  }
+
+  .adminTableWrap tr {
+    margin-top: 1rem;
+    border: 1px solid rgba(184, 138, 57, 0.24);
+    border-radius: 0.65rem;
+    background: white;
+    padding: 0.75rem;
+  }
+
+  .adminTableWrap td {
+    display: grid;
+    max-width: none;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.55rem;
+    border-bottom: 1px solid rgba(184, 138, 57, 0.12);
+  }
+
+  .adminTableWrap td::before {
+    color: var(--puja-muted);
+    content: attr(data-label);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .adminTableWrap td:last-child {
+    border-bottom: 0;
+  }
+
+  .adminTableWrap .emptyTable {
+    display: block;
+  }
+
+  .adminTableWrap .emptyTable::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .adminPage *,
+  .adminLoginPage * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
