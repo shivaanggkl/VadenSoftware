@@ -77,12 +77,45 @@ async function runBlobOperation<T>(operation: () => Promise<T>) {
   } catch (error) {
     if (error instanceof PujaDataError) throw error;
 
-    console.error(
-      "Puja Blob operation failed",
-      error instanceof Error ? error.name : "unknown storage error",
-    );
+    const details = blobErrorDetails(error);
+    console.error("Puja Blob operation failed", details);
     throw new PujaDataError();
   }
+}
+
+function safeLogText(value: unknown) {
+  if (typeof value !== "string") return undefined;
+
+  return value
+    .replace(/vercel_blob_[^\s"']+/gi, "[redacted]")
+    .replace(/bearer\s+[^\s"']+/gi, "Bearer [redacted]");
+}
+
+function blobErrorDetails(error: unknown) {
+  if (!error || typeof error !== "object") {
+    return { name: "UnknownBlobError", message: safeLogText(error) };
+  }
+
+  const value = error as Record<string, unknown>;
+  const cause =
+    value.cause && typeof value.cause === "object"
+      ? (value.cause as Record<string, unknown>)
+      : null;
+
+  return {
+    name: safeLogText(value.name) || "UnknownBlobError",
+    message: safeLogText(value.message) || "No error message provided",
+    code: safeLogText(value.code),
+    status: value.status ?? value.statusCode,
+    cause: cause
+      ? {
+          name: safeLogText(cause.name),
+          message: safeLogText(cause.message),
+          code: safeLogText(cause.code),
+          status: cause.status ?? cause.statusCode,
+        }
+      : undefined,
+  };
 }
 
 async function writeRsvpBlob(rsvp: PujaRsvp, allowOverwrite: boolean) {

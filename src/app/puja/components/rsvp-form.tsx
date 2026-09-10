@@ -9,10 +9,12 @@ const STORAGE_KEY = "satyanarayan-puja-rsvp";
 type FormState = {
   guestName: string;
   attending: boolean | null;
-  adults: number;
-  children: number;
+  adults: number | "";
+  children: number | "";
   message: string;
 };
+
+type GuestCountField = "adults" | "children";
 
 const initialState: FormState = {
   guestName: "",
@@ -54,6 +56,12 @@ function stateFromRsvp(rsvp: PujaRsvp): FormState {
     children: rsvp.children,
     message: rsvp.message || "",
   };
+}
+
+function normalizeGuestCount(value: number | "") {
+  const count = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(count)) return 0;
+  return Math.min(50, Math.max(0, Math.trunc(count)));
 }
 
 export function RsvpForm() {
@@ -111,22 +119,40 @@ export function RsvpForm() {
     setForm((current) => ({
       ...current,
       attending,
-      adults: attending ? Math.max(1, current.adults) : 0,
-      children: attending ? current.children : 0,
+      adults: attending ? Math.max(1, normalizeGuestCount(current.adults)) : 0,
+      children: attending ? normalizeGuestCount(current.children) : 0,
     }));
     setStatus(null);
+  }
+
+  function setGuestCount(field: GuestCountField, value: string) {
+    setForm((current) => ({
+      ...current,
+      [field]: value === "" ? "" : Math.max(0, Number(value)),
+    }));
+  }
+
+  function normalizeGuestCountField(field: GuestCountField) {
+    setForm((current) => ({
+      ...current,
+      [field]: normalizeGuestCount(current[field]),
+    }));
   }
 
   async function submitRsvp(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus(null);
 
+    const adults = form.attending ? normalizeGuestCount(form.adults) : 0;
+    const children = form.attending ? normalizeGuestCount(form.children) : 0;
+    setForm((current) => ({ ...current, adults, children }));
+
     if (form.attending === null) {
       setStatus({ type: "error", message: "Please select whether you are attending." });
       return;
     }
 
-    if (form.attending && form.adults + form.children < 1) {
+    if (form.attending && adults + children < 1) {
       setStatus({ type: "error", message: "Please enter at least one attending guest." });
       return;
     }
@@ -143,8 +169,8 @@ export function RsvpForm() {
           identifier,
           guest_name: form.guestName,
           attending: form.attending,
-          adults: form.attending ? form.adults : 0,
-          children: form.attending ? form.children : 0,
+          adults,
+          children,
           message: form.message,
           website,
         }),
@@ -242,7 +268,8 @@ export function RsvpForm() {
             max={50}
             required={form.attending === true}
             value={form.attending === false ? 0 : form.adults}
-            onChange={(event) => setForm((current) => ({ ...current, adults: Number(event.target.value) }))}
+            onChange={(event) => setGuestCount("adults", event.target.value)}
+            onBlur={() => normalizeGuestCountField("adults")}
             disabled={submitting || form.attending === false}
           />
         </div>
@@ -257,7 +284,8 @@ export function RsvpForm() {
             max={50}
             required={form.attending === true}
             value={form.attending === false ? 0 : form.children}
-            onChange={(event) => setForm((current) => ({ ...current, children: Number(event.target.value) }))}
+            onChange={(event) => setGuestCount("children", event.target.value)}
+            onBlur={() => normalizeGuestCountField("children")}
             disabled={submitting || form.attending === false}
           />
         </div>

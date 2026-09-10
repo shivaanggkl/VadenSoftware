@@ -19,16 +19,18 @@ private JSON object under `puja-rsvps/<id>.json` in Vercel Blob.
 - `PUJA_ADMIN_PASSWORD`: a unique, strong dashboard password.
 - `PUJA_SESSION_SECRET`: at least 32 random characters; generate one with
   `openssl rand -base64 48`.
-- `BLOB_READ_WRITE_TOKEN`: the official Vercel Blob credential. Vercel creates
-  and attaches it automatically when the private store is connected to this
-  project. Do not create a custom replacement or expose it to the browser.
+
+No static Blob token is required. Vercel supplies short-lived OIDC credentials
+to server functions and provides `BLOB_STORE_ID` when the private store is
+connected. Neither value belongs in browser code.
 
 ## Vercel Blob setup
 
 In the existing Vercel project, open **Storage**, choose **Create Database →
-Blob**, set access to **Private**, and connect the store to this project. That
-connection adds `BLOB_READ_WRITE_TOKEN` to the project environment. Pull it
-locally with `vercel env pull .env.local`.
+Blob**, set access to **Private**, and connect the store to this project using
+OIDC. Vercel automatically provides the store ID and short-lived credentials.
+For local Blob access, link the checkout with `vercel link` and run through the
+Vercel CLI so it can obtain a development OIDC token.
 
 ## Local URLs
 
@@ -39,8 +41,8 @@ locally with `vercel env pull .env.local`.
 
 Add `PUJA_ADMIN_PASSWORD` and `PUJA_SESSION_SECRET` in the Vercel project's
 environment settings for Production and any Preview environment used for
-testing. Confirm the private Blob store is connected, then redeploy so all three
-server-side variables are available to the Next.js functions.
+testing. Confirm the private Blob store is connected through OIDC, then
+redeploy. Do not add `BLOB_READ_WRITE_TOKEN`.
 
 ## Removal after September 27, 2026
 
